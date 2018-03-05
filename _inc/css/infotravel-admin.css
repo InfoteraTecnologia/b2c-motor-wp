@@ -1,0 +1,787 @@
+.wp-admin.jetpack_page_infotravel-key-config, .wp-admin.settings_page_infotravel-key-config {
+    background-color:#f3f6f8;
+}
+
+#submitted-on {
+    position: relative;
+}
+#the-comment-list .author .infotravel-user-comment-count {
+    display: inline;
+}
+#the-comment-list .author a span {
+    text-decoration: none;
+    color: #999;
+}
+#the-comment-list .author a span.infotravel-span-link {
+    text-decoration: inherit;
+    color: inherit;
+}
+#the-comment-list .infotravel_remove_url {
+    margin-left: 3px;
+    color: #999;
+    padding: 2px 3px 2px 0;
+}
+#the-comment-list .infotravel_remove_url:hover {
+    color: #A7301F;
+    font-weight: bold;
+    padding: 2px 2px 2px 0;
+}
+#dashboard_recent_comments .infotravel-status {
+    display: none;
+}
+.infotravel-status {
+    float: right;
+}
+.infotravel-status a {
+    color: #AAA;
+    font-style: italic;
+}
+table.comments td.comment p a {
+    text-decoration: underline;
+}
+table.comments td.comment p a:after {
+    content: attr(href);
+    color: #aaa;
+    display: inline-block; /* Show the URL without the link's underline extending under it. */
+    padding: 0 1ex; /* Because it's inline block, we can't just use spaces in the content: attribute to separate it from the link text. */
+}
+.mshot-arrow {
+    width: 0;
+    height: 0;
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid transparent;
+    border-right: 10px solid #5C5C5C;
+    position: absolute;
+    left: -6px;
+    top: 91px;
+}
+.mshot-container {
+    background: #5C5C5C;
+    position: absolute;
+    top: -94px;
+    padding: 7px;
+    width: 450px;
+    height: 338px;
+    z-index: 20000;
+    -moz-border-radius: 6px;
+    border-radius: 6px;
+    -webkit-border-radius: 6px;
+}
+.infotravel-mshot {
+    position: absolute;
+    z-index: 100;
+}
+.infotravel-mshot .mshot-image {
+    margin: 0;
+    height: 338px;
+    width: 450px;
+}
+.checkforspam {
+    display: inline-block !important;
+}
+.checkforspam-progress {
+    padding-left: 1ex;
+    display: none;
+}
+.checkforspam.button-disabled .checkforspam-progress {
+    display: inline;
+}
+
+.checkforspam-spinner {
+    display: inline-block;
+    margin-top: 7px;
+}
+
+.infotravel-right {
+    float: right;
+}
+
+.infotravel-card .infotravel-right {
+    margin: 1em 0;
+}
+
+.infotravel-alert-text {
+    color: #dd3d36;
+    font-weight: bold;
+    font-size: 120%;
+    margin-top: .5rem;
+}
+.infotravel-alert {
+    border: 1px solid #e5e5e5;
+    padding: 0.4em 1em 1.4em 1em;
+    border-radius: 3px;
+    -webkit-border-radius: 3px;
+    border-width: 1px;
+    border-style: solid;
+}
+
+.infotravel-alert h3.infotravel-key-status {
+    color: #fff;
+    margin: 1em 0 0.5em 0;
+}
+
+.infotravel-alert.infotravel-critical {
+    background-color: #993300;
+}
+
+.infotravel-alert.infotravel-active {
+    background-color: #649316;
+}
+
+.infotravel-alert p.infotravel-key-status {
+    font-size: 24px;
+}
+
+.infotravel-alert p.infotravel-description {
+    color:#fff;
+    font-size: 14px;
+    margin: 0 0;
+    font-style: normal;
+}
+
+.infotravel-alert p.infotravel-description a,
+.infotravel-alert p.infotravel-description a,
+.infotravel-alert p.infotravel-description a,
+.infotravel-alert p.infotravel-description a {
+    color: #fff;
+}
+
+.infotravel-new-snapshot {
+    margin-top: 1em;
+    padding: 1em;
+    text-align: center;
+    background: #fff;
+}
+
+.infotravel-new-snapshot h3 {
+    background: #f5f5f5;
+    color: #888;
+    font-size: 11px;
+    margin: 0;
+    padding: 3px;
+}
+
+.new-snapspot ul {
+    font-size: 12px;
+    width: 100%;
+}
+
+.infotravel-new-snapshot ul li {
+    color: #999;
+    float: left;
+    font-size: 11px;
+    padding: 0 20px;
+    text-transform: uppercase;
+    width: 33%;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+}
+
+.infotravel-new-snapshot ul li:first-child,
+.infotravel-new-snapshot ul li:nth-child(2) {
+    border-right:1px dotted #ccc;
+}
+
+.infotravel-new-snapshot ul li span {
+    color: #52accc;
+    display: block;
+    font-size: 32px;
+    font-weight: lighter;
+    line-height: 1.5em;
+}
+
+.infotravel-settings th:first-child {
+    vertical-align: top;
+    padding-top: 15px;
+}
+
+.infotravel-settings th.infotravel-api-key {
+    vertical-align: middle;
+    padding-top: 0;
+}
+
+.infotravel-settings input[type=text] {
+    width: 100%;
+}
+
+.infotravel-settings span.infotravel-note{
+    float: left;
+    padding-left: 23px;
+    font-size: 75%;
+    margin-top: -10px;
+}
+
+/**
+ * For the activation notice on the plugins page.
+ */
+.infotravel_activate {
+    min-width: 825px;
+    border: 1px solid #4F800D;
+    padding: 5px;
+    margin: 15px 0;
+    background: #83AF24;
+    background-image: -webkit-gradient(linear, 0% 0, 80% 100%, from(#83AF24), to(#4F800D));
+    background-image: -moz-linear-gradient(80% 100% 120deg, #4F800D, #83AF24);
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    -webkit-border-radius: 3px;
+    position: relative;
+    overflow: hidden;
+}
+
+.infotravel_activate .aa_a {
+    position: absolute;
+    top: -5px;
+    right: 10px;
+    font-size: 140px;
+    color: #769F33;
+    font-family: Georgia, "Times New Roman", Times, serif;
+    z-index: 1;
+}
+
+.infotravel_activate .aa_button {
+    font-weight: bold;
+    border: 1px solid #029DD6;
+    border-top: 1px solid #06B9FD;
+    font-size: 15px;
+    text-align: center;
+    padding: 9px 0 8px 0;
+    color: #FFF;
+    background: #029DD6;
+    background-image: -webkit-gradient(linear, 0% 0, 0% 100%, from(#029DD6), to(#0079B1));
+    background-image: -moz-linear-gradient(0% 100% 90deg, #0079B1, #029DD6);
+    -moz-border-radius: 2px;
+    border-radius: 2px;
+    -webkit-border-radius: 2px;
+    width: 100%;
+    cursor: pointer;
+    margin: 0;
+}
+
+.infotravel_activate .aa_button:hover {
+    text-decoration: none !important;
+    border: 1px solid #029DD6;
+    border-bottom: 1px solid #00A8EF;
+    font-size: 15px;
+    text-align: center;
+    padding: 9px 0 8px 0;
+    color: #F0F8FB;
+    background: #0079B1;
+    background-image: -webkit-gradient(linear, 0% 0, 0% 100%, from(#0079B1), to(#0092BF));
+    background-image: -moz-linear-gradient(0% 100% 90deg, #0092BF, #0079B1);
+    -moz-border-radius: 2px;
+    border-radius: 2px;
+    -webkit-border-radius: 2px;
+}
+
+.infotravel_activate .aa_button_border {
+    border: 1px solid #006699;
+    -moz-border-radius: 2px;
+    border-radius: 2px;
+    -webkit-border-radius: 2px;
+    background: #029DD6;
+    background-image: -webkit-gradient(linear, 0% 0, 0% 100%, from(#029DD6), to(#0079B1));
+    background-image: -moz-linear-gradient(0% 100% 90deg, #0079B1, #029DD6);
+}
+
+.infotravel_activate .aa_button_container {
+    display: inline-block;
+    background: #DEF1B8;
+    padding: 5px;
+    -moz-border-radius: 2px;
+    border-radius: 2px;
+    -webkit-border-radius: 2px;
+    width: 266px;
+}
+
+.infotravel_activate .aa_description {
+    position: absolute;
+    top: 22px;
+    left: 285px;
+    margin-left: 25px;
+    color: #E5F2B1;
+    font-size: 15px;
+    z-index: 1000;
+}
+
+.infotravel_activate .aa_description strong {
+    color: #FFF;
+    font-weight: normal;
+}
+
+.jetpack_page_infotravel-key-config #wpcontent, .settings_page_infotravel-key-config #wpcontent {
+    padding-left: 0;
+}
+
+.infotravel-masthead {
+    background-color:#fff;
+    text-align:center;
+    box-shadow:0 1px 0 rgba(200,215,225,0.5),0 1px 2px #e9eff3
+}
+@media (max-width: 45rem) {
+    .infotravel-masthead {
+        padding:0 1.25rem
+    }
+}
+
+.infotravel-masthead__inside-container {
+    padding:.375rem 0;
+    margin:0 auto;
+    width:100%;
+    max-width:45rem;
+    text-align: left;
+}
+.infotravel-masthead__logo-container {
+    padding:.3125rem 0 0
+}
+.infotravel-masthead__logo {
+    width:10.375rem;
+    height:1.8125rem;
+}
+.infotravel-masthead__logo-link {
+    display:inline-block;
+    outline:none;
+    vertical-align:middle
+}
+.infotravel-masthead__logo-link:focus {
+    line-height:0;
+    box-shadow:0 0 0 2px #78dcfa
+}
+.infotravel-masthead__logo-link+code {
+    margin:0 10px;
+    padding:5px 9px;
+    border-radius:2px;
+    background:#e6ecf1;
+    color:#647a88
+}
+.infotravel-masthead__links {
+    display:-ms-flexbox;
+    display:flex;
+    -ms-flex-flow:row wrap;
+    flex-flow:row wrap;
+    -ms-flex:2 50%;
+    flex:2 50%;
+    -ms-flex-pack:end;
+    justify-content:flex-end;
+    margin:0
+}
+@media (max-width: 480px) {
+    .infotravel-masthead__links {
+        padding-right:.625rem
+    }
+}
+.infotravel-masthead__link-li {
+    margin:0;
+    padding:0
+}
+.infotravel-masthead__link {
+    font-style:normal;
+    color:#0087be;
+    padding:.625rem;
+    display:inline-block
+}
+.infotravel-masthead__link:visited {
+    color:#0087be
+}
+.infotravel-masthead__link:active,.infotravel-masthead__link:hover {
+    color:#00aadc
+}
+.infotravel-masthead__link:hover {
+    text-decoration:underline
+}
+.infotravel-masthead__link .dashicons {
+    display:none
+}
+@media (max-width: 480px) {
+    .infotravel-masthead__link:hover,.infotravel-masthead__link:active {
+        text-decoration:none
+    }
+    .infotravel-masthead__link .dashicons {
+        display:block;
+        font-size:1.75rem
+    }
+    .infotravel-masthead__link span+span {
+        display:none
+    }
+}
+.infotravel-masthead__link-li:last-of-type .infotravel-masthead__link {
+    padding-right:0
+}
+
+.infotravel-lower {
+    margin: 0 auto;
+    text-align: left;
+    max-width: 45rem;
+    padding: 1.5rem;
+}
+
+.infotravel-card {
+    margin-top: 1rem;
+    margin-bottom: 0;
+    position: relative;
+    margin: 0 auto 0.625rem auto;
+    box-sizing: border-box;
+    background: white;
+    box-shadow: 0 0 0 1px rgba(200, 215, 225, 0.5), 0 1px 2px #e9eff3;
+}
+
+.infotravel-card:after, .infotravel-card .inside:after, .infotravel-masthead__logo-container:after {
+    content: ".";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+}
+
+.infotravel-card .inside {
+    padding: 1.5rem;
+    padding-top: 1rem;
+}
+
+.infotravel-card .infotravel-card-actions {
+    margin-top: 1rem;
+}
+
+.jetpack_page_infotravel-key-config .update-nag, .settings_page_infotravel-key-config .update-nag {
+    display: none;
+}
+
+.infotravel-masthead .infotravel-right {
+    line-height: 2.125rem;
+    font-size: 0.9rem;
+}
+
+.infotravel-box {
+    box-sizing: border-box;
+    background: white;
+    border: 1px solid rgba(200, 215, 225, 0.5);
+}
+
+.infotravel-box h2, .infotravel-box h3 {
+    padding: 1.5rem 1.5rem .5rem 1.5rem;
+    margin: 0;
+}
+
+.infotravel-box p {
+    padding: 0 1.5rem 1.5rem 1.5rem;
+    margin: 0;
+}
+
+.infotravel-jetpack-email {
+    font-style: oblique;
+}
+
+.infotravel-jetpack-gravatar {
+    padding: 0 0 0 1.5rem;
+    float: left;
+    margin-right: 1rem;
+    width: 54px;
+    height: 54px;
+}
+
+.infotravel-box p:after {
+    content: ".";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+}
+
+.infotravel-box .infotravel-right {
+    padding-right: 1.5rem;
+}
+
+.infotravel-boxes .infotravel-box {
+    margin-bottom: 0;
+    padding: 0;
+    margin-top: -1px;
+}
+
+.infotravel-boxes .infotravel-box:last-child {
+    margin-bottom: 1.5rem;
+}
+
+.infotravel-boxes .infotravel-box:first-child {
+    margin-top: 1.5rem;
+}
+
+.infotravel-button, .infotravel-button:hover, .infotravel-button:visited {
+    background: white;
+    border-color: #c8d7e1;
+    border-style: solid;
+    border-width: 1px 1px 2px;
+    color: #2e4453;
+    cursor: pointer;
+    display: inline-block;
+    margin: 0;
+    outline: 0;
+    overflow: hidden;
+    font-size: 14px;
+    font-weight: 500;
+    text-overflow: ellipsis;
+    text-decoration: none;
+    vertical-align: top;
+    box-sizing: border-box;
+    font-size: 14px;
+    line-height: 21px;
+    border-radius: 4px;
+    padding: 7px 14px 9px;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+
+.infotravel-button:hover {
+    border-color: #a8bece;
+}
+
+.infotravel-button:active {
+    border-width: 2px 1px 1px;
+}
+
+.infotravel-is-primary, .infotravel-is-primary:hover, .infotravel-is-primary:visited {
+    background: #00aadc;
+    border-color: #0087be;
+    color: white;
+}
+
+.infotravel-is-primary:hover, .infotravel-is-primary:focus {
+    border-color: #005082;
+}
+
+.infotravel-is-primary:hover {
+    border-color: #005082;
+}
+
+.infotravel-section-header {
+    position: relative;
+    margin: 0 auto 0.625rem auto;
+    padding: 1rem;
+    box-sizing: border-box;
+    box-shadow: 0 0 0 1px rgba(200, 215, 225, 0.5), 0 1px 2px #e9eff3;
+    background: #ffffff;
+    width: 100%;
+    padding-top: 0.6875rem;
+    padding-bottom: 0.6875rem;
+    display: flex;
+}
+
+.infotravel-section-header__label {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-align: center;
+    align-items: center;
+    -ms-flex-positive: 1;
+    flex-grow: 1;
+    line-height: 1.75rem;
+    position: relative;
+    font-size: 0.875rem;
+    color: #4f748e;
+}
+
+.infotravel-section-header__actions {
+    line-height: 1.75rem;
+}
+
+.infotravel-plugin-footer {
+    bottom: 0;
+}
+
+.jetpack_page_infotravel-config #wpcontent, .settings_page_infotravel-config #wpcontent {
+    padding-left: 0;
+}
+
+
+/*
+	These styles were extracted from bootstrap,
+	so, if you already use bootstrap, you don't
+	need this.
+*/
+
+.alert
+{
+    padding: 15px;
+    margin-bottom: 20px;
+    border: 1px solid transparent;
+    border-radius: 4px;
+}
+
+.alert-info
+{
+    color: #fff;
+    background-color: #0087be;
+    border-color: #0087be;
+    border-radius: 40px;
+    padding: 8px 10px 8px 10px;
+}
+
+.alert-danger
+{
+    color: #fff;
+    background-color: #d94f4f;
+    border-color: #d94f4f;
+    border-radius: 40px;
+    padding: 8px 10px 8px 10px;
+}
+
+.alert-warning
+{
+    color: #fff;
+    background-color: #f0b849;
+    border-color: #f0b849;
+    border-radius: 40px;
+    padding: 8px 10px 8px 10px;
+}
+
+.alert-success
+{
+    color: #fff;
+    background-color: #4ab866;
+    border-color: #4ab866;
+    border-radius: 40px;
+    padding: 8px 10px 8px 10px;
+}
+
+.close
+{
+    float: right;
+    font-size: 21px;
+    font-weight: 700;
+    line-height: 1;
+    color: #000;
+    text-shadow: 0 1px 0 #fff;
+    filter: alpha(opacity=20);
+    opacity: .2;
+}
+
+.close:hover,
+.close:focus
+{
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+    filter: alpha(opacity=50);
+    opacity: .5;
+}
+
+/*--------------------------
+* MENU TABS
+---------------------------*/
+.infotravel-menu__tabs {
+    list-style: none;
+    overflow: hidden;
+    padding-left: 2em;
+    font-size: 10px;
+}
+.infotravel-menu__tabs li {
+    float: left;
+    font-size: 1.3em;
+}
+.infotravel-menu__tabs a {
+    padding: 1em;
+    background: #ffffff;
+    display: inline-block;
+    color: #0087be;
+    text-decoration: none;
+    -webkit-border-radius: 4px 4px 0 0;
+    -moz-border-radius: 4px 4px 0 0;
+    font-weight: 100;
+    border-radius: 0 0 0 0;
+    -o-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+    -moz-box-shadow: inset 0 -2px 5px rgba(0,0,0,0.2);
+}
+.infotravel-menu__tabs a.active {
+    color: #333b48;
+    background: #FFF;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+    border-bottom: 2px solid #2e4453;
+}
+vmenu__tabs a.active i {color: #2e4453;}
+.infotravel-menu__tabs a i {
+    margin-right: 3px;
+    color: #aaaaaa;
+}
+
+/*--------------------------
+* MENU WRAPPER
+---------------------------*/
+
+.infotravel-menu {
+    /* font-size: 62.5%; */
+}
+
+.infotravel-menu__wrapper {
+    position: relative;
+    z-index: 400;
+    background: #FFF;
+    min-height: 300px;
+    padding-left: 2em;
+    border-top: 1px solid #dcdcdc;
+    margin-top: -16px;
+}
+.infotravel-menu--shadow {
+    position: absolute;
+    z-index: 300;
+    bottom: -5px;
+    height: 25px;
+    width: 100%;
+}
+.infotravel-menu--shadow:after,
+.infotravel-menu--shadow:before {
+    content: '';
+    display: block;
+    width: 50%;
+    height: 25px;
+    position: absolute;
+    left: 0;
+    background: rgba(0,0,0,0.2);
+    -webkit-border-radius: 25px;
+    -moz-border-radius: 25px;
+    border-radius: 25px;
+    -webkit-box-shadow: 0 0 15px 5px rgba(0,0,0,0.25);
+    -moz-box-shadow: 0 0 15px 5px rgba(0,0,0,0.25);
+    box-shadow: 0 0 15px 5px rgba(0,0,0,0.25);
+    -webkit-transform: scale(0.8) rotate(-4deg);
+    -ms-transform: scale(0.8) rotate(-4deg);
+    -o-transform: scale(0.8) rotate(-4deg);
+    transform: scale(0.8) rotate(-4deg);
+}
+.infotravel-menu--shadow:after {
+    right: 0;
+    left: auto;
+    -webkit-transform: scale(0.8) rotate(4deg);
+    -ms-transform: scale(0.8) rotate(4deg);
+    -o-transform: scale(0.8) rotate(4deg);
+    transform: scale(0.8) rotate(4deg);
+}
+.infotravel-menu__wrapper .menu__item {
+    line-height: 1.3;
+    color: #76716f;
+    display: none;
+}
+.infotravel-menu__wrapper .menu__item.item-active {
+    display: block;
+}
+.infotravel-menu__wrapper .menu__item h3 {
+    font-size: 1.8em;
+    color: #333b48;
+    border-bottom: 1px solid #d9d9d9;
+    padding-bottom: 5px;
+    margin-bottom: 12px;
+}
+.infotravel-menu__wrapper .menu__item p {
+    font-size: 1.3em;
+    line-height: 1.6em;
+    color: #76716f;
+}
+
+input             { border: 2px solid #ccc; padding: 8px; }
+input:invalid     { border-color: red; }
+input:valid,
+input:focus:valid { border-color:green; }
+input:focus       { border-color: #ccc !important; }
