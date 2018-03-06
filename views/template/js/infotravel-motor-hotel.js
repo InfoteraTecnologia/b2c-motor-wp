@@ -3,6 +3,9 @@ var motorDeBuscaHotel = (function() {
     var Crianca = {};
     var show = false;
     var stProprio = false;
+    var qtIdadeMaxChd = 0;
+    var qtAdt = 0;
+    var qtChd = 0;
 
     Crianca.add = function(i, campo){
         while (i--) {
@@ -13,19 +16,11 @@ var motorDeBuscaHotel = (function() {
                     + '<label>Idade '+(qnt + 1)+'ª criança:</label>'
                     + '<div class="info-btns">'
                     +'<select name="idadecrianca" id="idadecrianca" required>'
-                    + '    <option value="-1" disabled="disabled" selected="selected">Idade</option>'
-                    + '    <option value="1">1</option>'
-                    + '    <option value="2">2</option>'
-                    + '    <option value="3">3</option>'
-                    + '    <option value="4">4</option>'
-                    + '    <option value="5">5</option>'
-                    + '    <option value="6">6</option>'
-                    + '    <option value="7">7</option>'
-                    + '    <option value="8">8</option>'
-                    + '    <option value="9">9</option>'
-                    + '    <option value="10">10</option>'
-                    + '    <option value="11">11</option>'
-                    + '</select>'
+                    + '    <option value="-1" disabled="disabled" selected="selected">Idade</option>';
+                        for(var iq = 0; iq < qtIdadeMaxChd; iq++){
+                            html += '<option value="'+(iq + 1)+'">'+(iq + 1)+'</option>';
+                        }
+                    html += + '</select>'
                     + '</div>'
                     + '</div>';
                 Crianca.container.append(html);
@@ -38,6 +33,31 @@ var motorDeBuscaHotel = (function() {
             Crianca.container.find('.info-idades:last').remove();
         }
     };
+    
+    var config = function(){
+
+        var data = {
+            'action': 'infotravel_hotel_autocomplete'
+        };
+
+        var urlPost = window.location.href + "wp-admin/admin-ajax.php";
+
+        jQuery.post(urlPost, data, function(data){
+            data = JSON.parse(data);
+            
+            var config = data.config;
+            var origem = data.origem;
+            
+            if(data.config){
+                stProprio = data.config.stProprio;
+                qtIdadeMaxChd = config.qtIdadeMaxChd;
+                qtAdt = config.qtAdt;
+                qtChd = config.qtChd;
+            }
+            
+        });
+    };
+    
     var isJson = function (str) {
         if(jQuery.isEmptyObject(str)) {
             return false;
@@ -61,6 +81,8 @@ var motorDeBuscaHotel = (function() {
 
     return {
         init: function(){
+            config();
+            
             jQuery.widget("custom.catcomplete", jQuery.ui.autocomplete, {
                 _create: function () {
                     this._super();
@@ -83,7 +105,7 @@ var motorDeBuscaHotel = (function() {
                 }
             });
 
-            jQuery("#autocomplete-destino").catcomplete({
+            jQuery(".infotravel-form-hospedagem #autocomplete-destino").catcomplete({
                 delay: 0,
                 source: function( request, response ) {
                     jQuery(".infotravel-form-hospedagem .info-input-style input[type='text']#autocomplete-destino").addClass("ui-autocomplete-loading");
@@ -185,9 +207,9 @@ var motorDeBuscaHotel = (function() {
                 },
                 select: function (event, ui) {
                     jQuery(".infotravel-form-hospedagem input#info-data-entrada").focus();
-                    jQuery("#id").val(ui.item.id);
-                    jQuery("#tp").val(ui.item.tp);
-                    jQuery("#am").val(ui.item.am);
+                    jQuery(".infotravel-form-hospedagem #id").val(ui.item.id);
+                    jQuery(".infotravel-form-hospedagem #tp").val(ui.item.tp);
+                    jQuery(".infotravel-form-hospedagem #am").val(ui.item.am);
                     jQuery('.infotravel-form-hospedagem input#autocomplete-destino').val(ui.item.nome);
                 }
             });
@@ -216,7 +238,7 @@ var motorDeBuscaHotel = (function() {
                 dateFormat: "dd/mm/yy",
                 minDate:  new Date().toLocaleDateString(),
                 onClose: function(selectedDate) {
-                    jQuery("#info-data-saida").datepicker("option", "minDate", selectedDate);
+                    jQuery(".infotravel-form-hospedagem #info-data-saida").datepicker("option", "minDate", selectedDate);
                     jQuery(this).parents('.column').next().children().find('#info-data-saida').focus();
                 }
             });
@@ -281,8 +303,8 @@ var motorDeBuscaHotel = (function() {
 
             jQuery(".infotravel-form-hospedagem .info-quartos-div").on("click", "#btn-eliminar", function(e) {
                 e.stopPropagation();
-                jQuery("#info-quartos-article article:last-child").remove();
-                jQuery("#info-quartos-article article:last-child").find("#btn-eliminar").css("display", "block");
+                jQuery(".infotravel-form-hospedagem #info-quartos-article article:last-child").remove();
+                jQuery(".infotravel-form-hospedagem #info-quartos-article article:last-child").find("#btn-eliminar").css("display", "block");
                 quantidadeQuartos--;
                 if (quantidadeQuartos < maxQuartos) {
                     jQuery(".infotravel-form-hospedagem #btn-add-quarto").css("display", "inline-block");
@@ -338,7 +360,6 @@ var motorDeBuscaHotel = (function() {
 
             var urlPost = window.location.href + "wp-admin/admin-ajax.php";
 
-            console.log(urlPost);
             jQuery.post(urlPost, data, function (resposta) {
                 urlB2C = resposta;
             });
@@ -348,9 +369,9 @@ var motorDeBuscaHotel = (function() {
             var campo = jQuery(campo);
             var input = jQuery(campo).parent().find('input');
             var valor = input.val();
-            if(valor == 8 || (Number(valor) + 1) == 8){
+            if(valor == qtAdt || (Number(valor) + 1) == qtAdt){
                 campo.addClass('disabled');
-                input.val(8);
+                input.val(qtAdt);
                 somaPassageiros();
             }else{
                 campo.removeClass('disabled');
@@ -382,10 +403,10 @@ var motorDeBuscaHotel = (function() {
 
             var campo_crianca = jQuery(campo).parent().parent().parent().find('.info-criancas-idades');
             var qnt = campo_crianca.find('.info-idades').length;
-            if(valor == 8 || (Number(valor) + 1) == 8){
+            if(valor == qtChd || (Number(valor) + 1) == qtChd){
                 campo.addClass('disabled');
-                input.val(8);
-                Crianca.add((8 - qnt), campo_crianca);
+                input.val(qtChd);
+                Crianca.add((qtChd - qnt), campo_crianca);
                 somaPassageiros();
             }else{
                 campo.removeClass('disabled');
@@ -477,7 +498,6 @@ var motorDeBuscaHotel = (function() {
 
                 window.location = url;
             }
-
 
         },
         setShow: function(data){

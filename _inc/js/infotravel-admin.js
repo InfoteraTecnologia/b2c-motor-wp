@@ -42,6 +42,29 @@ function saveConfigPacote(){
     });
 }
 
+function saveConfigPacoteDinamico(){
+    var url_dominio_pacote_dinamico = jQuery("#url-dominio-pacote-dinamico").val();
+    var infotravel_chave_pacote_dinamico = jQuery("#infotravel-chave-pacote-dinamico").val();
+    var pacoteDinamicoExibirPacote = jQuery("#infotravel_exibir_motor_pacote_dinamico").is(":checked");
+    var pacoteDinamicoExibirTopoRodape = jQuery("#infotravel_exibir_tr_pacote_dinamico").is(":checked");
+    var data = {
+        'action': 'infotravel_saveConfigPacoteDinamico',
+        'pacoteDinamicoExibirPacote': pacoteDinamicoExibirPacote,
+        'url_dominio_pacote_dinamico': url_dominio_pacote_dinamico,
+        'infotravel_chave_pacote_dinamico': infotravel_chave_pacote_dinamico,
+        'pacoteDinamicoExibirTopoRodape': pacoteDinamicoExibirTopoRodape
+
+    };
+    
+    console.log(data);
+    jQuery.post('./admin-ajax.php', data, function (datas) {
+        var toast = $.simplyToast('Salvando configurações!', 'info', {delay: 500});
+        setTimeout(function(){
+            var toast = $.simplyToast('Configurações Salvas', 'success', {delay: 2000});
+        }, 1000);
+    });
+}
+
 
 $(function() {
     // Menu Tabular

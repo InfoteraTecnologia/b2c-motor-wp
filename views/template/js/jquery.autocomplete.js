@@ -5807,67 +5807,74 @@
                 },
                 menufocus: function( event, ui ) {
                     var label, item;
+                    
+                    if(typeof item != "undefined"){
+                        // support: Firefox
+                        // Prevent accidental activation of menu items in Firefox (#7024 #9118)
+                        if ( this.isNewMenu ) {
+                            this.isNewMenu = false;
+                            if ( event.originalEvent && /^mouse/.test( event.originalEvent.type ) ) {
+                                this.menu.blur();
 
-                    // support: Firefox
-                    // Prevent accidental activation of menu items in Firefox (#7024 #9118)
-                    if ( this.isNewMenu ) {
-                        this.isNewMenu = false;
-                        if ( event.originalEvent && /^mouse/.test( event.originalEvent.type ) ) {
-                            this.menu.blur();
+                                this.document.one( "mousemove", function() {
+                                    $( event.target ).trigger( event.originalEvent );
+                                } );
 
-                            this.document.one( "mousemove", function() {
-                                $( event.target ).trigger( event.originalEvent );
-                            } );
+                                return;
+                            }
+                        }
 
-                            return;
+                        item = ui.item.data( "ui-autocomplete-item" );
+                        if ( false !== this._trigger( "focus", event, { item: item } ) ) {
+
+                            // use value to match what will end up in the input, if it was a key event
+                            if ( event.originalEvent && /^key/.test( event.originalEvent.type ) ) {
+                                this._value( item.value );
+                            }
+                        }
+
+                        // Announce the value in the liveRegion
+                        label = ui.item.attr( "aria-label" ) || item.value;
+                        if ( label && $.trim( label ).length ) {
+                            this.liveRegion.children().hide();
+                            $( "<div>" ).text( label ).appendTo( this.liveRegion );
                         }
                     }
-
-                    item = ui.item.data( "ui-autocomplete-item" );
-                    if ( false !== this._trigger( "focus", event, { item: item } ) ) {
-
-                        // use value to match what will end up in the input, if it was a key event
-                        if ( event.originalEvent && /^key/.test( event.originalEvent.type ) ) {
-                            this._value( item.value );
-                        }
-                    }
-
-                    // Announce the value in the liveRegion
-                    label = ui.item.attr( "aria-label" ) || item.value;
-                    if ( label && $.trim( label ).length ) {
-                        this.liveRegion.children().hide();
-                        $( "<div>" ).text( label ).appendTo( this.liveRegion );
-                    }
+                    
                 },
                 menuselect: function( event, ui ) {
+                    
                     var item = ui.item.data( "ui-autocomplete-item" ),
                         previous = this.previous;
-
-                    // Only trigger when focus was lost (click on menu)
-                    if ( this.element[ 0 ] !== $.ui.safeActiveElement( this.document[ 0 ] ) ) {
-                        this.element.trigger( "focus" );
-                        this.previous = previous;
-
-                        // #6109 - IE triggers two focus events and the second
-                        // is asynchronous, so we need to reset the previous
-                        // term synchronously and asynchronously :-(
-                        this._delay( function() {
+                
+                    if(typeof item != "undefined"){
+                        // Only trigger when focus was lost (click on menu)
+                        if ( this.element[ 0 ] !== $.ui.safeActiveElement( this.document[ 0 ] ) ) {
+                            this.element.trigger( "focus" );
                             this.previous = previous;
-                            this.selectedItem = item;
-                        } );
+
+                            // #6109 - IE triggers two focus events and the second
+                            // is asynchronous, so we need to reset the previous
+                            // term synchronously and asynchronously :-(
+                            this._delay( function() {
+                                this.previous = previous;
+                                this.selectedItem = item;
+                            } );
+                        }
+
+                        if ( false !== this._trigger( "select", event, { item: item } ) ) {
+                            this._value( item.value );
+                        }
+
+                        // reset the term after the select event
+                        // this allows custom select handling to work properly
+                        this.term = this._value();
+
+                        this.close( event );
+                        this.selectedItem = item;
                     }
-
-                    if ( false !== this._trigger( "select", event, { item: item } ) ) {
-                        this._value( item.value );
-                    }
-
-                    // reset the term after the select event
-                    // this allows custom select handling to work properly
-                    this.term = this._value();
-
-                    this.close( event );
-                    this.selectedItem = item;
                 }
+            
             } );
 
             this.liveRegion = $( "<div>", {
@@ -18699,8 +18706,5 @@
     }
 
     var widgetsTooltip = $.ui.tooltip;
-
-
-
-
+    
 }));

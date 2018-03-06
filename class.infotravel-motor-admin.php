@@ -30,6 +30,7 @@ class Infotravel_Admin {
 
         add_action( 'wp_ajax_infotravel_saveConfigHospedagem', array('Infotravel_Admin', 'saveConfigHospedagem') );
         add_action( 'wp_ajax_infotravel_saveConfigPacote', array('Infotravel_Admin', 'saveConfigPacote') );
+        add_action( 'wp_ajax_infotravel_saveConfigPacoteDinamico', array('Infotravel_Admin', 'saveConfigPacoteDinamico') );
     }
 
     public static function admin_init() {
@@ -153,31 +154,18 @@ class Infotravel_Admin {
         return true;
     }
 
+    public static function saveConfigPacoteDinamico(){
+        $pacoteDinamicoExibirPacote = $_POST["pacoteDinamicoExibirPacote"];
+        $url_dominio_pacoteDinamico = $_POST["url_dominio_pacote_dinamico"];
+        $infotravel_chave_pacoteDinamico = $_POST["infotravel_chave_pacote_dinamico"];
+        $pacoteDinamicoExibirTopoRodape = $_POST["pacoteDinamicoExibirTopoRodape"];
+        
+        update_option('pacote_dinamico_exibir', $pacoteDinamicoExibirPacote);
+        update_option('pacote_dinamico_dominio', $url_dominio_pacoteDinamico);
+        update_option('pacote_dinamico_chave', $infotravel_chave_pacoteDinamico);
+        update_option('pacote_dinamico_exibir_tr', $pacoteDinamicoExibirTopoRodape);
+        
+        return true;
+    }
+    
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

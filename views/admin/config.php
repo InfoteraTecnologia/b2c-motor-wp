@@ -158,7 +158,7 @@
                     
                     <article class="infotravel-menu__item" id="tab-pacote-dinamico" style="display: none;">
                         <div class="inside">
-                            <form action="javascript:saveConfigPacote()" method="POST">
+                            <form action="javascript:saveConfigPacoteDinamico()" method="POST">
                                 <table cellspacing="0" class="infotravel-settings">
                                     <tbody>
                                     <tr>

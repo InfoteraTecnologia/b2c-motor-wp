@@ -21,7 +21,7 @@
                 <div class="info-column info-column-6">
                     <div class="info-input-style">
                         <label>Origem:</label>
-                        <input id="autocomplete-destino" name="destino" placeholder="Informe o pacote ou destino" required="" type="text" >
+                        <input id="autocomplete-origem" name="origem" placeholder="Informe uma origem" required="" type="text" >
                         <input id="stProprio" name="eTP" type="hidden" value="<?php echo get_option('pacote_exibir_tr'); ?>"> <input id="stProprio" name="urlDominio" type="hidden" value="<?php echo get_option('pacote_dominio'); ?>">
                         <input id="stProprio" name="stProprio" type="hidden" value="false">
                         <input id="idunidade" name="idunidade" type="hidden">
@@ -38,6 +38,7 @@
                     <input id="stProprio" name="eTP" type="hidden" value="<?php echo get_option('pacote_exibir_tr'); ?>"> <input id="stProprio" name="urlDominio" type="hidden" value="<?php echo get_option('pacote_dominio'); ?>">
                     <input id="stProprio" name="stProprio" type="hidden" value="false">
                     <input id="idunidade" name="idunidade" type="hidden">
+                    <input id="data-val" name="data-val2" type="hidden">
                 </div>
             </div>
 

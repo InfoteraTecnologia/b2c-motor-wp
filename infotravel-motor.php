@@ -4,11 +4,11 @@
  * @package Infotravel Motor
  * @author Infotera Tecnologia <suporte@infotera.com.br>
  * @license GPLv3
- * @copyright 2017 by Infotera Tecnologia
+ * @copyright 2018 by Infotera Tecnologia
  */
 /*
 	Plugin Name: Infotravel - Motor de Busca
-	Plugin URI: http://infotravel.com.br/
+	Plugin URI: http://infotera.com.br/
 	Description: Plugin para inserção do motor de busca de voos e hoteis.
 	Version: 1.1.8
 	Author: INFOTERA TECNOLOGIA

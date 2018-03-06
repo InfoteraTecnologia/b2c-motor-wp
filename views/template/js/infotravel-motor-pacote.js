@@ -4,6 +4,9 @@ var motorDeBuscaPacote = (function() {
     var show = false;
     var stProprio = false;
     var autocomplete = false;
+    var qtIdadeMaxChd = 0;
+    var qtAdt = 0;
+    var qtChd = 0;
 
     Crianca.add = function(i, campo){
         while (i--) {
@@ -14,19 +17,11 @@ var motorDeBuscaPacote = (function() {
                     + '<label>Idade '+(qnt + 1)+'ª criança:</label>'
                     + '<div class="info-btns">'
                     +'<select name="idadecrianca" id="idadecrianca" required>'
-                    + '    <option value="-1" disabled="disabled" selected="selected">Idade</option>'
-                    + '    <option value="1">1</option>'
-                    + '    <option value="2">2</option>'
-                    + '    <option value="3">3</option>'
-                    + '    <option value="4">4</option>'
-                    + '    <option value="5">5</option>'
-                    + '    <option value="6">6</option>'
-                    + '    <option value="7">7</option>'
-                    + '    <option value="8">8</option>'
-                    + '    <option value="9">9</option>'
-                    + '    <option value="10">10</option>'
-                    + '    <option value="11">11</option>'
-                    + '</select>'
+                    + '    <option value="-1" disabled="disabled" selected="selected">Idade</option>';
+                        for(var iq = 0; iq < qtIdadeMaxChd; iq++){
+                            html += '<option value="'+(iq + 1)+'">'+(iq + 1)+'</option>';
+                        }
+                    html += + '</select>'
                     + '</div>'
                     + '</div>';
                 Crianca.container.append(html);
@@ -79,23 +74,27 @@ var motorDeBuscaPacote = (function() {
             if(data.config){
                 jQuery(".infotravel-form-pacote #idunidade").val(data.config.idUnidade);
                 stProprio = data.config.stProprio;
+                qtIdadeMaxChd = config.qtIdadeMaxChd;
+                qtAdt = config.qtAdt;
+                qtChd = config.qtChd;
             }
 
             if(config.stAutocompletarOrigem == null || config.stAutocompletarOrigem == "N"){
                 jQuery(".infotravel-form-pacote #inputOrigem").remove();
                 autocomplete = false;
+                var select = jQuery(".infotravel-form-pacote #selectOrigem select[name='autocomplete-origemSelect']");
+                var html = '<option selected="selected" value="-1" disabled="disabled">Selecione uma Origem</option>';
+                for (var i = 0; i < origem.length; i++) {
+                    html += '<option onclick="motorPacoteFechado.selecionaOpcaoLi(this);" value="' + origem[i].tp + origem[i].id + '/' + origem[i].nm + '">' + origem[i].nm + '</option>';
+                }
+                select.empty();
+                select.append(html);
             }else if(config.stAutocompletarOrigem == "S"){
                 jQuery(".infotravel-form-pacote #inputOrigem").css('display', 'block');
                 jQuery(".infotravel-form-pacote #selectOrigem").remove();
                 autocomplete = true;
             }
-            var select = jQuery(".infotravel-form-pacote #selectOrigem select[name='autocomplete-origemSelect']");
-            var html = '<option selected="selected" value="-1" disabled="disabled">Selecione uma Origem</option>';
-            for (var i = 0; i < origem.length; i++) {
-                html += '<option onclick="motorPacoteFechado.selecionaOpcaoLi(this);" value="' + origem[i].tp + origem[i].id + '/' + origem[i].nm + '">' + origem[i].nm + '</option>';
-            }
-            select.empty();
-            select.append(html);
+            
         });
     };
 
@@ -361,14 +360,14 @@ var motorDeBuscaPacote = (function() {
                 }
             });
 
-            jQuery(".infotravel-form-pacote #autocomplete-destino").catcomplete({
+            jQuery(".infotravel-form-pacote #autocomplete-origem").catcomplete({
                 delay: 0,
                 source: function( request, response ) {
-                    jQuery(".infotravel-form-pacote #autocomplete-destino").addClass("ui-autocomplete-loading");
+                    jQuery(".infotravel-form-pacote #autocomplete-origem").addClass("ui-autocomplete-loading");
                     if(request.term.length >= 3){
                         var data = {
                             'action': 'infotravel_pacote_autocomplete',
-                            'valor': '&idOrigem=' + request.term
+                            'param': '&nmOrigem=' + request.term
                         };
 
                         var urlPost = window.location.href + "wp-admin/admin-ajax.php";
@@ -392,7 +391,7 @@ var motorDeBuscaPacote = (function() {
                                     for (var i = 0; i < json.origem.length; i++) {
                                         dados1 += '{' +
                                             '"label": "' + json.origem[i].nm + '",' +
-                                            '"category": "Hotéis",' +
+                                            '"category": "'+( (json.origem[i].tp == 'H') ? "Hotéis" : "Destinos"  )+'",' +
                                             '"value": "'+ json.origem[i].nm +'",'+
                                             '"data_val": "' + json.origem[i].tp + json.origem[i].id + "/" + json.origem[i].nm + '"' +
                                             '},';
@@ -425,7 +424,7 @@ var motorDeBuscaPacote = (function() {
                 },
                 select: function (event, ui) {
                     jQuery(".infotravel-form-pacote input#data-val").val(ui.item.data_val);
-                    jQuery('.infotravel-form-pacote input#autocomplete-destino').val(ui.item.nome);
+                    jQuery('.infotravel-form-pacote input#autocomplete-origem').val(ui.item.nome);
 
                     if(autocomplete == true){
                         var idOrigem = jQuery(".infotravel-form-pacote input#data-val").val().split('/')[0];
@@ -601,7 +600,6 @@ var motorDeBuscaPacote = (function() {
 
             var urlPost = window.location.href + "wp-admin/admin-ajax.php";
 
-            console.log(urlPost);
             jQuery.post(urlPost, data, function (resposta) {
                 urlB2C = resposta;
             });
@@ -611,9 +609,9 @@ var motorDeBuscaPacote = (function() {
             var campo = jQuery(campo);
             var input = jQuery(campo).parent().find('input');
             var valor = input.val();
-            if(valor == 8 || (Number(valor) + 1) == 8){
+            if(valor == qtAdt || (Number(valor) + 1) == qtAdt){
                 campo.addClass('disabled');
-                input.val(8);
+                input.val(qtAdt);
                 somaPassageiros();
             }else{
                 campo.removeClass('disabled');
@@ -645,10 +643,10 @@ var motorDeBuscaPacote = (function() {
 
             var campo_crianca = jQuery(campo).parent().parent().parent().find('.info-criancas-idades');
             var qnt = campo_crianca.find('.info-idades').length;
-            if(valor == 8 || (Number(valor) + 1) == 8){
+            if(valor == qtChd || (Number(valor) + 1) == qtChd){
                 campo.addClass('disabled');
-                input.val(8);
-                Crianca.add((8 - qnt), campo_crianca);
+                input.val(qtChd);
+                Crianca.add((qtChd - qnt), campo_crianca);
                 somaPassageiros();
             }else{
                 campo.removeClass('disabled');
