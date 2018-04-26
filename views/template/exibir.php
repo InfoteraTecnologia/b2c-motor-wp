@@ -11,9 +11,9 @@
     <div class="info-overlay">
         <div class="info-overlay-container">
             <div class="flex">
-                <div class="loader"></div>
+                <div class="infotravel-loader"></div>
             </div>
-            <div class="load-text">
+            <div class="infotravel-load-text">
                 Buscando Melhores Ofertas...
             </div>
         </div>
