@@ -373,7 +373,7 @@
         margin-top: 0;
     }
 }
-.loader {
+.infotravel-loader {
     width: 50pt;
     height: 50pt;
     border-radius: 100%;
@@ -383,7 +383,7 @@
     background-color: transparent;
     animation: loading 1s infinite;
 }
-.load-text {
+.infotravel-load-text {
     padding-top: 15px;
     text-align: center;
     font: 14pt "Helvetica Neue", Helvetica, Arial, sans-serif;
