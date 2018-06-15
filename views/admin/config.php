@@ -17,9 +17,9 @@
                 <p>Para instalar o motor de hospedagem diretamente no código de seu tema basta adicionar o shortcode: </p>
                 <code>&lt;?php do_shortcode("[infotravel_motor_hotel]"); ?&gt;</code>
                 <p>Para instalar o motor de pacote aéreo diretamente no código de seu tema basta adicionar o shortcode: </p>
-                <code>&lt;?php do_shortcode("[infotravel_motor_pacote"); ?&gt;</code>
+                <code>&lt;?php do_shortcode("[infotravel_motor_pacote]"); ?&gt;</code>
                 <p>Para instalar o motor de pacote dinâmico diretamente no código de seu tema basta adicionar o shortcode: </p>
-                <code>&lt;?php do_shortcode("[infotravel_motor_dinamico"); ?&gt;</code>
+                <code>&lt;?php do_shortcode("[infotravel_motor_pacote_dinamico]"); ?&gt;</code>
 
             </div>
         </div>

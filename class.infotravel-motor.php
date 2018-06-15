@@ -73,7 +73,7 @@ class Infotravel {
 
         $file = INFOTRAVEL__PLUGIN_DIR . 'views/template/pacote.php';
 		
-		wp_register_style( 'jquery-ui.min.css', plugin_dir_url( __FILE__ ) . 'views/template/css/jquery-ui.min.css', array(), INFOTRAVEL_VERSION );
+        wp_register_style( 'jquery-ui.min.css', plugin_dir_url( __FILE__ ) . 'views/template/css/jquery-ui.min.css', array(), INFOTRAVEL_VERSION );
         wp_register_style( 'font-awesome.min.css', plugin_dir_url( __FILE__ ) . 'views/template/css/font-awesome.min.css', array(), INFOTRAVEL_VERSION );
         wp_register_style( 'infotravel-motor.css', plugin_dir_url( __FILE__ ) . 'views/template/css/infotravel-motor.css', array(), INFOTRAVEL_VERSION );
         wp_enqueue_style('jquery-ui.min.css');
@@ -102,10 +102,10 @@ class Infotravel {
     }
     
     public static function motor_pacote_dinamico(){
-
+        
         $file = INFOTRAVEL__PLUGIN_DIR . 'views/template/pacote_dinamico.php';
 		
-		wp_register_style( 'jquery-ui.min.css', plugin_dir_url( __FILE__ ) . 'views/template/css/jquery-ui.min.css', array(), INFOTRAVEL_VERSION );
+        wp_register_style( 'jquery-ui.min.css', plugin_dir_url( __FILE__ ) . 'views/template/css/jquery-ui.min.css', array(), INFOTRAVEL_VERSION );
         wp_register_style( 'font-awesome.min.css', plugin_dir_url( __FILE__ ) . 'views/template/css/font-awesome.min.css', array(), INFOTRAVEL_VERSION );
         wp_register_style( 'infotravel-motor.css', plugin_dir_url( __FILE__ ) . 'views/template/css/infotravel-motor.css', array(), INFOTRAVEL_VERSION );
         wp_enqueue_style('jquery-ui.min.css');

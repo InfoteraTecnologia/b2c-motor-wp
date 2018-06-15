@@ -80,6 +80,10 @@ var motorDeBuscaPacote = (function() {
             }
 
             if(config.stAutocompletarOrigem == null || config.stAutocompletarOrigem == "N"){
+                jQuery(".infotravel-form-pacote #inputOrigem").css('display', 'block');
+                jQuery(".infotravel-form-pacote #selectOrigem").remove();
+                autocomplete = true;
+            }else if(config.stAutocompletarOrigem == "S"){
                 jQuery(".infotravel-form-pacote #inputOrigem").remove();
                 autocomplete = false;
                 var select = jQuery(".infotravel-form-pacote #selectOrigem select[name='autocomplete-origemSelect']");
@@ -89,10 +93,6 @@ var motorDeBuscaPacote = (function() {
                 }
                 select.empty();
                 select.append(html);
-            }else if(config.stAutocompletarOrigem == "S"){
-                jQuery(".infotravel-form-pacote #inputOrigem").css('display', 'block');
-                jQuery(".infotravel-form-pacote #selectOrigem").remove();
-                autocomplete = true;
             }
             
         });
