@@ -1,18 +1,14 @@
-<div class="pnlMotor pacoteDinamico">
-    <h4>Pacote dinâmico</h4>
+<div class="pnlMotor rodoServico">
+    <h4>Rodo+Serviço</h4>
     <div><label>Origem</label><br/>
         <input type="text" class="idOrigem" value=""/>
     </div>
     <div><label>Destino</label><br/>
-        <input type="text" class="idDestino" value="M279284/CLV;Costa do Sauípe"/>
+        <input type="text" class="idDestino"/>
     </div>
     <div>
         <label>Partida</label>
         <div><input type="text" class="dtIni" placeholder="Data de partida"/></div>
-    </div>
-    <div>
-        <label>Retorno</label>
-        <div><input type="text" class="dtFim" placeholder="Data de retorno"/></div>
     </div>
     <div>
         <div class="quartoQt"><label>Quartos</label>

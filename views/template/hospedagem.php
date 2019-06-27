@@ -1,18 +1,16 @@
-<div class="pnlMotor pacoteDinamico">
-    <h4>Pacote dinâmico</h4>
-    <div><label>Origem</label><br/>
-        <input type="text" class="idOrigem" value=""/>
-    </div>
-    <div><label>Destino</label><br/>
-        <input type="text" class="idDestino" value="M279284/CLV;Costa do Sauípe"/>
+<div class="pnlMotor hotel">
+    <h4>Hotéis</h4>
+    <div>
+        <label>Destino</label><br/>
+        <input type="text" class="idDestino"/>
     </div>
     <div>
-        <label>Partida</label>
-        <div><input type="text" class="dtIni" placeholder="Data de partida"/></div>
+        <label>Entrada</label>
+        <div><input class="dtIni" placeholder="Entrada"/></div>
     </div>
     <div>
-        <label>Retorno</label>
-        <div><input type="text" class="dtFim" placeholder="Data de retorno"/></div>
+        <label>Saída</label>
+        <div><input class="dtFim" placeholder="Saída"/></div>
     </div>
     <div>
         <div class="quartoQt"><label>Quartos</label>
@@ -40,3 +38,5 @@
         </div>
     </div>
 </div>
+
+

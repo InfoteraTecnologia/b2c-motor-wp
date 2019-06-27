@@ -1,10 +1,7 @@
-<div class="pnlMotor pacoteDinamico">
-    <h4>Pacote dinâmico</h4>
-    <div><label>Origem</label><br/>
-        <input type="text" class="idOrigem" value=""/>
-    </div>
+<div class="pnlMotor pacoteHotel">
+    <h4>Pacote Hotel</h4>
     <div><label>Destino</label><br/>
-        <input type="text" class="idDestino" value="M279284/CLV;Costa do Sauípe"/>
+        <input type="text" class="idDestino" value="M154826;Rio Quente"/>
     </div>
     <div>
         <label>Partida</label>
