@@ -30,6 +30,9 @@
         {
             $chave = get_option("b2c_chave");
             $dominio = get_option("b2c_dominio");
+            if (empty($chave) || empty($dominio)) {
+                return 'Plugin Infotravel Motor não configurado.';
+            }
 
             include INFOTRAVEL__PLUGIN_DIR . "views/template/$tipo.php";
 
