@@ -55,7 +55,7 @@
                 <code>&lt;?php do_shortcode("[infotravel_motor_assets]"); ?&gt;</code>
                 <br/>
                 <br/>
-                <small>O shortcode acima deve ser adicionado apos o código do jQueyr &lt;script src="...jquery.min.js"
+                <small>O shortcode acima deve ser adicionado apos o código do jQuery &lt;script src="...jquery.min.js"
                     ...&gt;&lt;/&gt;</small>
             </div>
         </div>
