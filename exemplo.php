@@ -30,6 +30,11 @@
             border: 2px solid red;
         }
     </style>
+
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <?php do_shortcode("[infotravel_motor_assets]"); ?>
+
 </head>
 <body>
 
@@ -43,7 +48,6 @@
 
 <?php do_shortcode("[infotravel_motor_pacote_rodo_servico]"); ?>
 
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+
 </body>
 </html>

@@ -3,8 +3,7 @@
         <div class="infotravel-masthead__inside-container">
             <div class="infotravel-masthead__logo-container">
                 <img class="infotravel-masthead__logo"
-                     src="<?php echo esc_url(plugins_url('../../_inc/img/logo.png', __FILE__)); ?>"
-                     alt="Infotravel"/>
+                     src="<?php echo esc_url(plugins_url('../../_inc/img/logo.png', __FILE__)); ?>" alt="Infotravel"/>
             </div>
         </div>
     </div>
@@ -50,6 +49,14 @@
                     <br/>
                     <?= htmlspecialchars('<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>'); ?>
                 </div>
+
+                <p style="font-weight: bold;color: red;">Apos adicionar o script do jQuery, é necessário adicionar o
+                    seguinte shorcode para carregar as funções do Motor de Busca:</p>
+                <code>&lt;?php do_shortcode("[infotravel_motor_assets]"); ?&gt;</code>
+                <br/>
+                <br/>
+                <small>O shortcode acima deve ser adicionado apos o código do jQuery &lt;script src="...jquery.min.js"
+                    ...&gt;&lt;/&gt;</small>
             </div>
         </div>
         <div class="infotravel-card">
@@ -71,16 +78,15 @@
                                     <tbody>
                                     <tr>
                                         <th class="infotravel-url-autocomplete-hospedagem" width="20%" align="left"
-                                            scope="row">Dominio (http ou https)
+                                            scope="row">Domínio do b2c (http ou https)
                                         </th>
                                         <td width="5%"/>
                                         <td align="left">
-                                            <span class="api-key"><input id="dominio"
-                                                                         name="dominio" type="text"
+                                            <span class="api-key"><input id="dominio" name="dominio" type="text"
                                                                          pattern="(https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|www\.[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9]\.[^\s]{2,}|www\.[a-zA-Z0-9]\.[^\s]{2,})"
                                                                          size="15"
                                                                          value="<?php echo get_option('b2c_dominio'); ?>"
-                                                                         placeholder="http://reservas.dominio.com.br"
+                                                                         placeholder="http://reservas.dominio.com.br/b2c"
                                                                          class="regular-text code"
                                                                          autocomplete="off"><span id="info-dominio-span"
                                                                                                   style="color: red; display: none;">Url inválida</span></span>
@@ -92,13 +98,12 @@
                                         </th>
                                         <td width="5%"/>
                                         <td align="left">
-                                            <span class="infotravel-url-b2c-hospedagem"><input
-                                                        id="chave"
-                                                        name="chave" type="text" size="15"
-                                                        value="<?php echo get_option('b2c_chave'); ?>"
-                                                        placeholder="937AE4E098D8604AE937AE4E098D8604AE"
-                                                        class="regular-text code"
-                                                        autocomplete="off"></span>
+                                            <span class="infotravel-url-b2c-hospedagem"><input id="chave" name="chave"
+                                                                                               type="text" size="15"
+                                                                                               value="<?php echo get_option('b2c_chave'); ?>"
+                                                                                               placeholder="chave MD5"
+                                                                                               class="regular-text code"
+                                                                                               autocomplete="off"></span>
                                         </td>
                                     </tr>
                                     </tbody>
