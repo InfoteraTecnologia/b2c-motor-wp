@@ -32,8 +32,10 @@ class Infotravel
     {
 
         include INFOTRAVEL__PLUGIN_DIR . "views/template/$tipo.php";
+        $dominio = get_option("b2c_dominio");
 
-        $html = "<script>"
+        $html = "<script src=\"$dominio/motor/motorv2.js?v=" . INFOTRAVEL_VERSION . "\"></script>"
+            . "<script>"
             . "/* <![CDATA[ */"
             . "document.addEventListener('DOMContentLoaded', function(event) { $jsFunction });"
             . "/*]]>*/"
