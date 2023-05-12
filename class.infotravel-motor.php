@@ -46,9 +46,10 @@ class Infotravel
     public static function load_motor_assets()
     {
         $chave = get_option("b2c_chave");
+        $sgEmpresa = get_option("b2c_empresa");
         $dominio = get_option("b2c_dominio");
 
-        if (empty($chave) || empty($dominio)) {
+        if (empty($chave) || empty($dominio) || empty($sgEmpresa)) {
             return 'Plugin Infotravel Motor não configurado.';
         }
 
@@ -65,7 +66,7 @@ class Infotravel
             . "fjs.parentNode.insertBefore(js, fjs);"
             . "js2 = d.createElement(s);"
             . "js2.id = ids; "
-            . "js2.text = \"document.addEventListener('DOMContentLoaded', function(event) {console.log('da');window.b2cMOTOR = new MotorBusca('$chave');});\";"
+            . "js2.text = \"document.addEventListener('DOMContentLoaded', function(event) {window.b2cMOTOR = new MotorBusca('$chave', {sg_idioma:'pt_BR', sgEmpresa: '$sgEmpresa', stAgencia: true});});\";"
             . "fjs.parentNode.insertBefore(js2, fjs);"
             . "}"
             . "(document, 'script', 'js-b2c-motor', 'js-b2c-motor-init'))"
@@ -77,32 +78,32 @@ class Infotravel
 
     public static function motor_hotel()
     {
-        echo self::carregaJS("hospedagem", "window.b2cMOTOR.motorHotel('.pnlMotor.hotel');");
+        echo self::carregaJS("hospedagem", "(window.b2cMOTOR) ? window.b2cMOTOR.motorHotel('.pnlMotor.hotel') : console.log('Carregue o jQuery e o shortcode [infotravel_motor_assets] antes dos shortcode dos motores escolhidos.')");
     }
 
     public static function motor_pacote_aereo()
     {
-        echo self::carregaJS("pacote_aereo", "window.b2cMOTOR.motorPacoteAereo('.pnlMotor.pacoteAereo', null, true);");
+        echo self::carregaJS("pacote_aereo", "(window.b2cMOTOR) ? window.b2cMOTOR.motorPacoteAereo('.pnlMotor.pacoteAereo', null, true) : console.log('Carregue o jQuery e o shortcode [infotravel_motor_assets] antes dos shortcode dos motores escolhidos.')");
     }
 
     public static function motor_pacote_hotel()
     {
-        echo self::carregaJS("pacote_hotel", "window.b2cMOTOR.motorPacoteHotel('.pnlMotor.pacoteHotel', true);");
+        echo self::carregaJS("pacote_hotel", "(window.b2cMOTOR) ? window.b2cMOTOR.motorPacoteHotel('.pnlMotor.pacoteHotel', true) : console.log('Carregue o jQuery e o shortcode [infotravel_motor_assets] antes dos shortcode dos motores escolhidos.')");
     }
 
     public static function motor_pacote_dinamico()
     {
-        echo self::carregaJS("pacote_dinamico", "window.b2cMOTOR.motorPacoteDinamico('.pnlMotor.pacoteDinamico',null,true);");
+        echo self::carregaJS("pacote_dinamico", "(window.b2cMOTOR) ? window.b2cMOTOR.motorPacoteDinamico('.pnlMotor.pacoteDinamico',null,true) : console.log('Carregue o jQuery e o shortcode [infotravel_motor_assets] antes dos shortcode dos motores escolhidos.')");
     }
 
     public static function motor_pacote_rodo_hotel()
     {
-        echo self::carregaJS("rodo_hotel", "window.b2cMOTOR.motorRodoHotel('.pnlMotor.rodoHotel');");
+        echo self::carregaJS("rodo_hotel", "(window.b2cMOTOR) ? window.b2cMOTOR.motorRodoHotel('.pnlMotor.rodoHotel') : console.log('Carregue o jQuery e o shortcode [infotravel_motor_assets] antes dos shortcode dos motores escolhidos.')");
     }
 
     public static function motor_pacote_rodo_servico()
     {
-        echo self::carregaJS("rodo_servico", "window.b2cMOTOR.motorRodoServico('.pnlMotor.rodoServico');");
+        echo self::carregaJS("rodo_servico", "(window.b2cMOTOR) ? window.b2cMOTOR.motorRodoServico('.pnlMotor.rodoServico') : console.log('Carregue o jQuery e o shortcode [infotravel_motor_assets] antes dos shortcode dos motores escolhidos.')");
     }
 
     private static function bail_on_activation($message, $deactivate = true)
@@ -167,6 +168,7 @@ class Infotravel
 
         update_option('b2c_dominio', '');
         update_option('b2c_chave', '');
+        update_option('b2c_empresa', '');
     }
 
     /**
@@ -178,6 +180,7 @@ class Infotravel
     {
         delete_option('b2c_dominio');
         delete_option('b2c_chave');
+        delete_option('b2c_empresa');
 
         return 'deactivated';
     }

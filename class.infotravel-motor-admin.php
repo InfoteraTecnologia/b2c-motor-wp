@@ -142,6 +142,7 @@
 
             update_option('b2c_dominio', $_POST["dominio"]);
             update_option('b2c_chave', $_POST["chave"]);
+            update_option('b2c_empresa', $_POST["empresa"]);
 
             return true;
         }

@@ -4,7 +4,8 @@ function saveConfig(){
     var data = {
         'action': 'infotravel_saveConfig',
         'dominio': jQuery("#dominio").val(),
-        'chave': jQuery("#chave").val()
+        'chave': jQuery("#chave").val(),
+        'empresa': jQuery("#empresa").val(),
 
     };
     jQuery.post('./admin-ajax.php', data, function (datas) {

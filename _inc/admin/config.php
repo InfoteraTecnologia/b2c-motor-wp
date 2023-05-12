@@ -98,12 +98,29 @@
                                         </th>
                                         <td width="5%"/>
                                         <td align="left">
-                                            <span class="infotravel-url-b2c-hospedagem"><input id="chave" name="chave"
-                                                                                               type="text" size="15"
-                                                                                               value="<?php echo get_option('b2c_chave'); ?>"
-                                                                                               placeholder="chave MD5"
-                                                                                               class="regular-text code"
-                                                                                               autocomplete="off"></span>
+                                            <span class="infotravel-url-b2c-hospedagem">
+                                                <input id="chave" name="chave"
+                                                   type="text" size="15"
+                                                   value="<?php echo get_option('b2c_chave'); ?>"
+                                                   placeholder="chave MD5"
+                                                   class="regular-text code"
+                                                   autocomplete="off">
+                                            </span>
+                                        </td>
+                                    </tr><tr>
+                                        <th class="infotravel-url-b2c-hospedagem" width="20%" align="left" scope="row">
+                                            Sg Empresa
+                                        </th>
+                                        <td width="5%"/>
+                                        <td align="left">
+                                            <span class="infotravel-url-b2c-hospedagem">
+                                                <input id="empresa" name="empresa"
+                                                   type="text" size="15"
+                                                   value="<?php echo get_option('b2c_empresa'); ?>"
+                                                   placeholder="sgEmpresa"
+                                                   class="regular-text code"
+                                                   autocomplete="off">
+                                            </span>
                                         </td>
                                     </tr>
                                     </tbody>
