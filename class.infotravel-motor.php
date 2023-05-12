@@ -33,8 +33,7 @@ class Infotravel
 
         include INFOTRAVEL__PLUGIN_DIR . "views/template/$tipo.php";
 
-        $html = "<script src=\"https://hresorts.infotravel.com.br/b2c/motor/motorv2.js?v=2.0\"></script>"
-            . "<script>"
+        $html = "<script>"
             . "/* <![CDATA[ */"
             . "document.addEventListener('DOMContentLoaded', function(event) { $jsFunction });"
             . "/*]]>*/"
