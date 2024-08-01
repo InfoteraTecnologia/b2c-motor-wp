@@ -84,17 +84,17 @@ class Infotravel
 
     public static function motor_pacote_aereo()
     {
-        echo self::carregaJS("pacote_aereo", "(window.b2cMOTOR) ? window.b2cMOTOR.motorPacoteAereo('.pnlMotor.pacoteAereo', null, true) : console.log('Carregue o jQuery e o shortcode [infotravel_motor_assets] antes dos shortcode dos motores escolhidos.')");
+        echo self::carregaJS("pacote_aereo", "(window.b2cMOTOR) ? window.b2cMOTOR.motorPacoteAereo('.pnlMotor.pacoteAereo') : console.log('Carregue o jQuery e o shortcode [infotravel_motor_assets] antes dos shortcode dos motores escolhidos.')");
     }
 
     public static function motor_pacote_hotel()
     {
-        echo self::carregaJS("pacote_hotel", "(window.b2cMOTOR) ? window.b2cMOTOR.motorPacoteHotel('.pnlMotor.pacoteHotel', true) : console.log('Carregue o jQuery e o shortcode [infotravel_motor_assets] antes dos shortcode dos motores escolhidos.')");
+        echo self::carregaJS("pacote_hotel", "(window.b2cMOTOR) ? window.b2cMOTOR.motorPacoteHotel('.pnlMotor.pacoteHotel') : console.log('Carregue o jQuery e o shortcode [infotravel_motor_assets] antes dos shortcode dos motores escolhidos.')");
     }
 
     public static function motor_pacote_dinamico()
     {
-        echo self::carregaJS("pacote_dinamico", "(window.b2cMOTOR) ? window.b2cMOTOR.motorPacoteDinamico('.pnlMotor.pacoteDinamico',null,true) : console.log('Carregue o jQuery e o shortcode [infotravel_motor_assets] antes dos shortcode dos motores escolhidos.')");
+        echo self::carregaJS("pacote_dinamico", "(window.b2cMOTOR) ? window.b2cMOTOR.motorPacoteDinamico('.pnlMotor.pacoteDinamico') : console.log('Carregue o jQuery e o shortcode [infotravel_motor_assets] antes dos shortcode dos motores escolhidos.')");
     }
 
     public static function motor_pacote_rodo_hotel()
