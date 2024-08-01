@@ -1,7 +1,7 @@
 <div class="pnlMotor pacoteHotel">
     <h4>Pacote Hotel</h4>
     <div><label>Destino</label><br/>
-        <input type="text" class="idDestino" value="M154826;Rio Quente"/>
+        <input type="text" class="idDestino" value=""/>
     </div>
     <div>
         <label>Partida</label>

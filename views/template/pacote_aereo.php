@@ -4,7 +4,7 @@
         <input type="text" class="idOrigem"/>
     </div>
     <div><label>Destino</label><br/>
-        <input type="text" class="idDestino" value="M279284;Rio Quente"/>
+        <input type="text" class="idDestino" value=""/>
     </div>
     <div>
         <label>Partida</label>

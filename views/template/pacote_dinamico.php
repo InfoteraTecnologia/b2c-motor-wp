@@ -4,7 +4,7 @@
         <input type="text" class="idOrigem" value=""/>
     </div>
     <div><label>Destino</label><br/>
-        <input type="text" class="idDestino" value="M279284/CLV;Costa do Sauípe"/>
+        <input type="text" class="idDestino" value=""/>
     </div>
     <div>
         <label>Partida</label>
