@@ -1,0 +1,30 @@
+version: "3.8"
+services:
+  db:
+    image: mysql:5.7 # Or mariadb:latest
+    container_name: wordpress_db
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: your_root_password
+      MYSQL_DATABASE: wordpress_database
+      MYSQL_USER: wordpress_user
+      MYSQL_PASSWORD: wordpress_password
+    volumes:
+      - db_data:/var/lib/mysql
+
+  wordpress:
+    image: wordpress:latest
+    container_name: my_wordpress
+    restart: always
+    ports:
+      - "8080:80" # Map host port 8080 to container port 80
+    environment:
+      WORDPRESS_DB_HOST: db:3306
+      WORDPRESS_DB_USER: wordpress_user
+      WORDPRESS_DB_PASSWORD: wordpress_password
+      WORDPRESS_DB_NAME: wordpress_database
+    volumes:
+      - ./wp-content:/var/www/html/wp-content # Persist WordPress content
+
+volumes:
+  db_data:
